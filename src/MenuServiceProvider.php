@@ -18,19 +18,9 @@ class MenuServiceProvider extends ServiceProvider
             require  __DIR__ . '/routes.php';
         }
 
-        $this->loadViewsFrom(__DIR__ . '/Views', 'wmenu');
-
         $this->publishes([
             __DIR__ . '/../config/menu.php'  => config_path('menu.php'),
         ], 'config');
-
-        $this->publishes([
-            __DIR__ . '/Views'   => resource_path('views/vendor/wmenu'),
-        ], 'view');
-
-        $this->publishes([
-            __DIR__ . '/../assets' => public_path('vendor/harimayco-menu'),
-        ], 'public');
 
         $this->publishes([
             __DIR__ . '/../migrations/2017_08_11_073824_create_menus_wp_table.php' => database_path('migrations/2017_08_11_073824_create_menus_wp_table.php'),
